@@ -1,2 +1,2 @@
-# RemjekVizsga
+# RemekVizsga
 Három hülye munkája
