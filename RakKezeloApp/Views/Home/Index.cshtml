@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Model
+@model List<Product>
+
+@{
     ViewData["Title"] = "Raktárkezelő";
 }
 
@@ -76,9 +79,6 @@
     }
     function loadPallets() {
         // AJAX kérés a raklapok betöltéséhez
-}
+    }
+</script>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
