@@ -1,4 +1,4 @@
-﻿namespace Model
+﻿namespace Model.Entities
 {
     public class Process
     {
@@ -8,9 +8,10 @@
 
         public DateTime date { get; set; }
 
-        public List<int> pallet_id { get; set; }
 
-        public List<int> product_id { get; set; }
+        public List<Pallets> Pallets { get; set; } = new List<Pallets>();
+
+        public List<Products> Products { get; set; } = new List<Products>();
 
         public List<int> worker_id { get; set; }
 
