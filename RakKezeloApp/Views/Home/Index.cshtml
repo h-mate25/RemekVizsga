@@ -1,5 +1,81 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Raktárkezelő";
+}
+
+<h2>Termék felvétele</h2>
+<form method="post" asp-action="AddProduct">
+    <label for="productName">Termék neve:</label>
+    <input type="text" id="productName" name="ProductName" required />
+
+    <label for="quantity">Mennyiség:</label>
+    <input type="number" id="quantity" name="Quantity" required />
+
+    <label for="location">Helyszín:</label>
+    <input type="text" id="location" name="Location" required />
+
+    <button type="submit">Hozzáadás</button>
+</form>
+
+<h2>Termékek</h2>
+<button onclick="loadProducts()">Termékek listázása</button>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Név</th>
+            <th>Mennyiség</th>
+            <th>Helyszín</th>
+        </tr>
+    </thead>
+    <tbody id="productTable">
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Quantity</td>
+                <td>@product.Location</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Raklap kezelése</h2>
+<form method="post" asp-action="AddToPallet">
+    <label for="products">Válassz termékeket:</label>
+    <select id="products" name="SelectedProducts" multiple>
+        @foreach (var product in Model.Products)
+        {
+            <option value="@product.Id">@product.Name</option>
+        }
+    </select>
+    <button type="submit">Raklapra helyezés</button>
+</form>
+
+<h2>Raklapok</h2>
+<button onclick="loadPallets()">Raklapok listázása</button>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Raklap ID</th>
+            <th>Termékek</th>
+        </tr>
+    </thead>
+    <tbody id="palletTable">
+        @foreach (var pallet in Model.Pallets)
+        {
+            <tr>
+                <td>@pallet.Id</td>
+                <td>@string.Join(", ", pallet.Products.Select(p => p.Name))</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function loadProducts() {
+        // AJAX kérés a termékek betöltéséhez
+    }
+    function loadPallets() {
+        // AJAX kérés a raklapok betöltéséhez
 }
 
 <div class="text-center">
