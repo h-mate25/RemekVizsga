@@ -5,7 +5,12 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RakKezeloApp", "RakKezeloApp\RakKezeloApp.csproj", "{F46C81B1-5887-4176-B91E-88E6B3A28799}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RakTar", "RakTar\RakTar.csproj", "{44B86F26-436B-4AF1-BA7C-E3BF75571AE9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38} = {1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D9EBE4D-0E64-4DF5-A287-5D709C1AFD38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B86F26-436B-4AF1-BA7C-E3BF75571AE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B86F26-436B-4AF1-BA7C-E3BF75571AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B86F26-436B-4AF1-BA7C-E3BF75571AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B86F26-436B-4AF1-BA7C-E3BF75571AE9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

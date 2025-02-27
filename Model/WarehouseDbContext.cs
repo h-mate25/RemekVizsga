@@ -8,7 +8,7 @@ using Model.Entities;
 
 namespace Model
 {
-    internal class WarehouseDbContext : DbContext
+    public class WarehouseDbContext : DbContext
     {
         public DbSet<Process> Processes { get; set; }
         public DbSet<Product> Product { get; set; }
@@ -51,7 +51,11 @@ namespace Model
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=WarehouseDb;Trusted_Connection=True;");
+            if (!optionsBuilder.IsConfigured)
+            {
+
+                optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=RakKezelo_Database");
+            }
         }
     }
 }
