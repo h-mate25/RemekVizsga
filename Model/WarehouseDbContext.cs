@@ -49,9 +49,6 @@ namespace Model
                 .HasForeignKey(p => p.pallet_id)
                 .IsRequired();
         }
-
-
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=WarehouseDb;Trusted_Connection=True;");
