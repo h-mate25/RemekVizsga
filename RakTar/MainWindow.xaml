@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:RakTar"
         mc:Ignorable="d"
         Foreground="{DynamicResource Theme_TextBrush}">
-
     <Grid Background="{DynamicResource Theme_BackgroundBrush}" Margin="16">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -96,7 +95,7 @@
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
                         <Button Width="100" Height="32" Margin="0,0,8,0" Content="Mégse"/>
-                        <Button Width="180" Height="32" Content="Mentés" Background="#008000" Foreground="White"/>
+                        <Button x:Name="Save" Width="180" Height="32" Content="Mentés" Background="#008000" Foreground="White" Click="Save_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
