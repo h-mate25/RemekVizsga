@@ -9,18 +9,26 @@ namespace Model.Implemantations
 {
     public class ProcessDatabaseManager : ProcessManagerInterface
     {
-        private WarehouseDbContext dbContext;
+        private readonly WarehouseDbContext dbContext;
 
         public ProcessDatabaseManager(WarehouseDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public void CreateProcess(Process process)
+        public void CreateProcess(string type)
         {
-            process.id = 0;
-            dbContext.Processes.Add(process);
+            var Process = new Process
+            {
+                id = 0,
+                type = type,
+                date = DateTime.Now
+            };
+
+
+            dbContext.Processes.Add(Process);
             dbContext.SaveChanges();
+
         }
 
         public List<Process> ReadProcess()

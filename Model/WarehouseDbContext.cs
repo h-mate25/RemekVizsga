@@ -16,6 +16,9 @@ namespace Model
         public DbSet<Pallet> Pallet { get; set; }
         public DbSet<Pallets> Pallets { get; set; }
 
+        public WarehouseDbContext(DbContextOptions<WarehouseDbContext> options) : base(options)
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

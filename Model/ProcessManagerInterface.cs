@@ -10,6 +10,6 @@ namespace Model
     public interface ProcessManagerInterface
     {
         List<Process> ReadProcess();
-        void CreateProcess(Process process);
+        void CreateProcess(string type);
     }
 }
