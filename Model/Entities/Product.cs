@@ -22,7 +22,7 @@ namespace Model.Entities
 
         public bool onPallet { get; set; }
 
-        public int pallet_id { get; set; }
+        public int? pallet_id { get; set; }
         public Pallet pallet { get; set; }
 
         public List<Products> Products { get; set; } = new List<Products>();

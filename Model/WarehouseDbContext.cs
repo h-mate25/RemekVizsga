@@ -49,7 +49,14 @@ namespace Model
                 .HasMany(p => p.Product)
                 .WithOne(p => p.pallet)
                 .HasForeignKey(p => p.pallet_id)
-                .IsRequired();
+                .IsRequired(false); // Az FK opcionálissá válik
+
+            // A termékek esetében opcionálissá kell tenni a raklap kapcsolódást
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.pallet)
+                .WithMany(p => p.Product)
+                .HasForeignKey(p => p.pallet_id)
+                .IsRequired(false); // A kapcsolat nem kötelező
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -9,7 +9,7 @@
         public DateTime date { get; set; }
 
 
-        public List<Pallets?> Pallets { get; set; } = new List<Pallets>();
+        public List<Pallets> Pallets { get; set; } = new List<Pallets>();
 
         public List<Products> Products { get; set; } = new List<Products>();
 

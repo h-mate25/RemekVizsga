@@ -11,6 +11,8 @@ using System.Windows.Shapes;
 using Model.Entities;
 using Model;
 using Microsoft.EntityFrameworkCore;
+using Model.Implemantations;
+using System.Diagnostics;
 
 namespace RakTar
 {
@@ -36,28 +38,29 @@ namespace RakTar
             {
                 var product = new Product
                 {
-                    name = txtProductName.Text, // A felhasználó által megadott név
-                    barcode = int.Parse(txtBarcode.Text), // A vonalkód
-                    type = "Általános", // Alapértelmezett típus
-                    weight = 1.0, // Alapértelmezett súly
-                    price = 2.0, // Alapértelmezett ár
-                    onPallet = false // Alapértelmezett állapot
+                    name = txtProductName.Text,
+                    barcode = int.Parse(txtBarcode.Text),
+                    type = "Általános",
+                    weight = 0.0,
+                    price = 0.0,
+                    onPallet = false,
+                    pallet_id = null
                 };
-
-                // Az entitás hozzáadása a dbContexthez
                 context.Product.Add(product);
+                context.SaveChanges(); // Save the product first
 
-                // Az adatok mentése az adatbázisba
-                context.SaveChanges();
+                // Create the process after the product is saved
+                var processManager = new ProcessDatabaseManager(context);
+                var pallets = new List<Pallets>();
+                var products = new List<Products> { new Products { product_id = product.id, process_id = 1 } };
+                var workerIds = new List<int?>();
+                var incomingCargoIds = new List<int?>();
+                var outgoingCargoIds = new List<int?>();
 
-                // Visszajelzés a felhasználónak
-                MessageBox.Show("Termék sikeresen elmentve!");
-
-
-
-                _process.CreateProcess("Termék felvétele");
-                MessageBox.Show("Log mentve!");
+                processManager.CreateProcess("Termék felvétele", products, pallets, workerIds, incomingCargoIds, outgoingCargoIds);
+                MessageBox.Show("Termék és folyamat sikeresen elmentve!");
             }
         }
+
     }
 }

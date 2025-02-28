@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Model;
 
@@ -11,9 +12,11 @@ using Model;
 namespace Model.Migrations
 {
     [DbContext(typeof(WarehouseDbContext))]
-    partial class WarehouseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250228105535_rakkja")]
+    partial class rakkja
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,6 +119,7 @@ namespace Model.Migrations
                         .HasColumnType("bit");
 
                     b.Property<int?>("pallet_id")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<double>("price")
@@ -176,7 +180,9 @@ namespace Model.Migrations
                 {
                     b.HasOne("Model.Entities.Pallet", "pallet")
                         .WithMany("Product")
-                        .HasForeignKey("pallet_id");
+                        .HasForeignKey("pallet_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("pallet");
                 });
