@@ -29,7 +29,6 @@ namespace Model.Implemantations
             dbContext.Processes.Add(Process);
             dbContext.SaveChanges();
 
-        }
 
         public List<Process> ReadProcess()
         {

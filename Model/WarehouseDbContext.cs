@@ -45,7 +45,6 @@ namespace Model
                 .WithMany(p => p.Pallets)
                 .HasForeignKey(cp => cp.pallet_id);
 
-
             modelBuilder.Entity<Pallet>()
                 .HasMany(p => p.Product)
                 .WithOne(p => p.pallet)
